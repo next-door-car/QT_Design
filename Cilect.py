@@ -1,15 +1,16 @@
 from PyQt5.QtCore import pyqtSignal, QObject
 import socket
 
-
 BUFFER_SIZE=1024
 class TCPClient(QObject):
     responseReceived = pyqtSignal(str)  # 信号，用于通知UI收到了服务器响应
-    def __init__(self, host, port, parent=None):
+    def __init__(self, host, port,connect_flag , parent=None):
         super().__init__(parent)
         self.host = host
         self.port = port
+        self.flag = connect_flag
         self.client_socket = None
+        
 
     def connectToServer(self):
         print(1)
@@ -25,22 +26,20 @@ class TCPClient(QObject):
             while response := self.client_socket.recv(BUFFER_SIZE).decode():
                 print("Server response:", response)
                 self.responseReceived.emit(response)
-
+                if not response:
+                    break
                 if response == "00000000":
                     break
                 elif response == "00000001":
                     break
-                elif response == "00000002":
+                elif response == "00000010":
                     break
-                elif response == "00000003":
+                elif response == "00000011":
                     break
-                elif response == "00000004":
-                    break
-                elif response == "00000005":
-                    break
-                elif response == "00000006":
+                elif response == "00000100":
                     break
                 elif response == "close":
+                    connect_flag=1
                     break
 
 
