@@ -18,25 +18,21 @@ class TCPClient(QObject):
         try:
             self.client_socket.connect((self.host, self.port))  # 连接到服务器
             print("connect success")
-
-            # 接收服务器的欢迎消息
-            # welcome_msg = self.client_socket.recv(BUFFER_SIZE).decode()
-            # print("Received:", welcome_msg)
             
             while response := self.client_socket.recv(BUFFER_SIZE).decode():
                 print("Server response:", response)
                 self.responseReceived.emit(response)
                 if not response:
                     break
-                if response == "00000000":
-                    break
-                elif response == "00000001":
+                if response == "00000001":
                     break
                 elif response == "00000010":
                     break
-                elif response == "00000011":
-                    break
                 elif response == "00000100":
+                    break
+                elif response == "00001000":
+                    break
+                elif response == "00010000":
                     break
                 elif response == "close":
                     connect_flag=1

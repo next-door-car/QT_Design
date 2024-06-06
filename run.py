@@ -5,9 +5,9 @@ from PyQt5 import QtCore
 from Cilect import TCPClient
 
 def xue(self):
-    self.ui.textEdit_2.setStyleSheet("background-color: black;")
-    self.ui.textEdit_8.setStyleSheet("background-color: black;")
-    self.ui.textEdit_9.setStyleSheet("background-color: black;")
+    self.ui.textEdit_2.setStyleSheet("background-color:  black;")
+    self.ui.textEdit_8.setStyleSheet("background-color:  black;")
+    self.ui.textEdit_9.setStyleSheet("background-color:  black;")
     self.ui.textEdit_15.setStyleSheet("background-color: black;")
     self.ui.textEdit_16.setStyleSheet("background-color: black;")
 
@@ -27,19 +27,19 @@ class MyUI(QMainWindow, QT2.Ui_MainWindow):
 
     def handleResponse(self, response):
         xue(self)
-        if response == "00000000":
+        if response == "00000001":
             print("change color")
             self.ui.textEdit_2.setStyleSheet("background-color: red;")
-        elif response == "00000001":
-            print("change color")
-            self.ui.textEdit_8.setStyleSheet("background-color: red;")
         elif response == "00000010":
             print("change color")
+            self.ui.textEdit_8.setStyleSheet("background-color: red;")
+        elif response == "00000100":
+            print("change color")
             self.ui.textEdit_9.setStyleSheet("background-color: red;")
-        elif response == "00000011":
+        elif response == "00001000":
             print("change color")
             self.ui.textEdit_15.setStyleSheet("background-color: red;")
-        elif response == "00000100":
+        elif response == "00010000":
             print("change color")
             self.ui.textEdit_16.setStyleSheet("background-color: red;")
         elif response == "close":
