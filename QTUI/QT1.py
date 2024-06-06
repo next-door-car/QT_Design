@@ -11,6 +11,11 @@ from PyQt5.QtWidgets import QMainWindow, QApplication
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtGui import QPainter, QPen
 
+# def arrea(self):
+
+    
+
+
 def connect(self):
     self.number0.clicked.connect(self.CXnumber0)
     self.number1.clicked.connect(self.CXnumber1)
@@ -25,6 +30,11 @@ def connect(self):
     self.DEL.clicked.connect(self.CXDEL)
     self.OK.clicked.connect(self.CXOK)
     self.cancel.clicked.connect(self.CXcancel)
+
+
+
+
+
 def color(self):
     self.centralwidget.setStyleSheet("background-color: #445469;")
     #按键的颜色
@@ -74,6 +84,7 @@ def color(self):
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         self.text_array = []  # 存储文本的数组
+        self.reseve_array = [] # 接收信息的数组
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 571)
         MainWindow.setMinimumSize(QtCore.QSize(800, 0))
@@ -185,15 +196,6 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
-
-        # self.label_3 = QtWidgets.QLabel(self.centralwidget)
-        # self.label_3.setGeometry(QtCore.QRect(140, 230, 71, 16))
-        # font = QtGui.QFont()
-        # font.setPointSize(7)
-        # font.setBold(True)
-        # font.setWeight(75)
-        # self.label_3.setFont(font)
-        # self.label_3.setObjectName("label_3")
 
         self.number1 = QtWidgets.QPushButton(self.centralwidget)
         self.number1.setGeometry(QtCore.QRect(350, 180, 61, 23))
@@ -458,14 +460,13 @@ class Ui_MainWindow(object):
         self.Rights.setText(_translate("MainWindow", "s"))
         self.Lefthorn.setText(_translate("MainWindow", "r"))
         self.Righthorn.setText(_translate("MainWindow", "r"))
-        #show(self , _translate , text_array)
 
         self.windows1.setText(_translate("MainWindow", "2000-00-00"))
         self.windows2.setText(_translate("MainWindow", "当前站"))
         self.windows3.setText(_translate("MainWindow", "终点站"))
         self.windows4.setText(_translate("MainWindow", "工况和级位"))
         self.windows5.setText(_translate("MainWindow", "广播模式"))
-        self.windows2_2.setText(_translate("MainWindow", "----"))
+        self.windows2_2.setText(_translate("MainWindow", "-----"))
         self.windows1_2.setText(_translate("MainWindow", "00:00:00"))
         self.windows3_2.setText(_translate("MainWindow", "----"))
         self.windows5_2.setText(_translate("MainWindow", "----"))
